@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    # pinned so benchmark runs are comparable; override with CPUS=2 MEMORY=1g podman compose up -d
+    cpus: ${CPUS:-4}
+    mem_limit: ${MEMORY:-4g}
